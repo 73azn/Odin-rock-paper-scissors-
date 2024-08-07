@@ -1,27 +1,46 @@
 let arr = ["rock","paper","scissors"]
+let indexer = 0;
 function getComputerChoice(){
     
     let s = Math.floor(Math.random() * 3)
     return arr[s]
 }
 
+
+function changeHumanChoice(){
+    let select = document.querySelector(".select")
+    select.textContent = arr[indexer%3]
+    indexer++
+}
 function getHumanChoice(){
-    return arr[Number(prompt("what is your choice ?\n1:rock\n2:paper\n3:scissors"))-1]
+    let select = document.querySelector(".select")
+
+    return select.textContent
 }
 
 
-let AI_choice
-let humanChoice 
+
 let humanScore = 0;
 let AI_score = 0;
+
+
 function check(){
-    if(humanChoice == undefined || humanChoice>3){
-        console.log("invalid input")
+   
+    let AI_choice = getComputerChoice()
+    let humanChoice = getHumanChoice()
+    if(humanChoice=="🫥"){
+        
         return
     }
-    console.log(`the human are ${humanChoice} the AI are ${AI_choice}`)
+    
+    document.querySelector(".player.ai").firstChild.textContent = AI_choice
+    
+    
     if(AI_choice == humanChoice){
         console.log("Tie")
+        humanScore++
+        AI_score++
+        update()
         return
     }
 
@@ -29,14 +48,18 @@ function check(){
         if(AI_choice ==arr[1]){
             console.log("you lose and AI won")
             AI_score++
+            update()
             return
         }
        
     }
     if(humanChoice == arr[1]){
+
+
         if(AI_choice == arr[2]){
             console.log("you lose and AI won")
             AI_score++
+            update()
             return
         }
         
@@ -46,18 +69,51 @@ function check(){
         if(AI_choice == arr[0]){
             console.log("you lose and AI won")
             AI_score++
+            update()
             return
         }
     }
 
     console.log("you won and AI lose")
     humanScore++
-}
-console.log("best of 3")
-while(humanScore < 3 && AI_score <3){
-AI_choice = getComputerChoice()
-humanChoice = getHumanChoice()
-check()
-console.log(`human score ${humanScore} AI score ${AI_score}`)
+    update()
 
 }
+
+function reset(){
+    AI_score =0
+    humanScore = 0
+    let ai = document.querySelector("#ai-Score")
+    let hu = document.querySelector("#hu-Score")
+
+    ai.textContent = AI_score
+    hu.textContent = humanScore
+}
+
+function update(){
+    if(AI_score>=5 && humanScore>=5){
+        alert("tie match")
+        reset()
+        return
+    }
+    if(humanScore>=5){
+        alert("you won the match")
+        reset()
+        return
+    }
+    else if(AI_score>=5){
+        alert("the AI won the match")
+        reset()
+        return
+    }
+    
+    let ai = document.querySelector("#ai-Score")
+    let hu = document.querySelector("#hu-Score")
+
+    ai.textContent = AI_score
+    hu.textContent = humanScore
+
+
+}
+
+

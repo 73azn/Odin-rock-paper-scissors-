@@ -3,10 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>RPS game</title>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
+    <div class="header"><h1>RPS</h1></div>
+    <div class="game">
+    <div class="players container">
+        <div class="players">
+            <div class="player ai"><h1>🤔</h1></div>
+            <h3>VS</h3>
+            <div class="player hu"><button class="select" onclick="changeHumanChoice()"><h1>🫥</h1></button></div>
+        </div>
+    </div>
+        <div class="score">
+            <h1 id="ai-Score">0</h1>
+            <h1 id="hu-Score">0</h1>
+        </div>
+        <button onclick="check()">challange</button>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

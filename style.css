@@ -1,0 +1,85 @@
+/* 
+    background : d6adff
+    borders : 330066
+    inside borders 5c00b8
+    font color
+*/
+
+*{
+    padding: 0;
+    margin: 0;
+    color: azure;
+}
+body{
+    background-color: #d6adff ;
+    height: 100vh;
+}
+
+.header{
+    display: flex;
+    margin: 15px 15px;
+    margin-bottom: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: #7A00F5;
+    border: #330066 solid 3px;
+    border-radius: 15px;
+    padding: 10px 20px;
+    
+}
+
+.game{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+        
+.players.container{
+    display: flex;
+    width: 100%;
+    border: none;
+    
+}
+.players{
+display: flex;
+justify-content: center;
+gap: 18px;
+width: 100%;
+padding: 12px;
+flex-direction: row;
+border: #330066 solid 3px;
+margin: 0 15px;
+border-radius: 15px;
+
+}
+.player{
+    display: flex;
+	position: relative;
+    width: 100px;
+    height: 100px;
+	text-align: center;
+	border-radius: 50%;
+	overflow: hidden;
+    border: #330066 solid 3px;
+    background-color: #7A00F5;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+.select{
+    height: 100%;
+    width: 100%;
+    background-color: inherit;
+    border: none;
+    
+}
+.score{
+   
+    display: flex;
+    justify-content: center;
+    gap: 160px;
+}
