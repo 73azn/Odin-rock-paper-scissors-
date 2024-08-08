@@ -9,7 +9,7 @@
     padding: 0;
     margin: 0;
     color: #DADDD8;
-    -webkit-text-stroke-color: #3f3879 ;
+    -webkit-text-stroke-color: #32297A ;
     -webkit-text-stroke-width: 0.5px;
 }
 body{
@@ -47,9 +47,9 @@ body{
 }
 .players{
 display: flex;
-justify-content: center;
-gap: 18px;
-width: 100%;
+justify-content: space-around;
+
+width: 60%;
 padding: 12px;
 flex-direction: row;
 
@@ -85,8 +85,8 @@ border-radius: 15px;
 .score{
    
     display: flex;
-    justify-content: center;
-    gap: 160px;
+    justify-content: space-around;
+    width: 60%;
 }
 .challange{
     border: #7266CC solid 2px;
