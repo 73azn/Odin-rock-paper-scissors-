@@ -1,6 +1,24 @@
-let arr = ["rock","paper","scissors"]
+let arr = ["🪨","📄","✂️"]
 let indexer = 0;
+let prev = "zero"
+let humanChoice
+let AI_choice
+
+
+
+
 function getComputerChoice(){
+    if(repeted()){
+        if(prev == arr[0]){
+            return arr[1]
+        }
+        if(prev == arr[1]){
+            return arr[2]
+        }
+        if(prev == arr[2]){
+            return arr[0]
+        }
+    }
     
     let s = Math.floor(Math.random() * 3)
     return arr[s]
@@ -8,6 +26,7 @@ function getComputerChoice(){
 
 
 function changeHumanChoice(){
+ 
     let select = document.querySelector(".select")
     select.textContent = arr[indexer%3]
     indexer++
@@ -23,14 +42,19 @@ function getHumanChoice(){
 let humanScore = 0;
 let AI_score = 0;
 
+function playmatch(){
+    humanChoice = getHumanChoice()
+    prev = check(humanChoice)
 
+
+}
 function check(){
    
-    let AI_choice = getComputerChoice()
-    let humanChoice = getHumanChoice()
+   AI_choice = getComputerChoice()
+    
     if(humanChoice=="🫥"){
         
-        return
+        return humanChoice
     }
     
     document.querySelector(".player.ai").firstChild.textContent = AI_choice
@@ -41,7 +65,7 @@ function check(){
         humanScore++
         AI_score++
         update()
-        return
+        return humanChoice
     }
 
     if(humanChoice == arr[0]){
@@ -49,7 +73,7 @@ function check(){
             console.log("you lose and AI won")
             AI_score++
             update()
-            return
+            return humanChoice
         }
        
     }
@@ -60,7 +84,7 @@ function check(){
             console.log("you lose and AI won")
             AI_score++
             update()
-            return
+            return humanChoice
         }
         
     }
@@ -70,13 +94,14 @@ function check(){
             console.log("you lose and AI won")
             AI_score++
             update()
-            return
+            return humanChoice
         }
     }
 
     console.log("you won and AI lose")
     humanScore++
     update()
+    return humanChoice
 
 }
 
@@ -106,6 +131,8 @@ function update(){
         reset()
         return
     }
+
+
     
     let ai = document.querySelector("#ai-Score")
     let hu = document.querySelector("#hu-Score")
@@ -114,6 +141,11 @@ function update(){
     hu.textContent = humanScore
 
 
+}
+
+
+function repeted(){
+    return humanChoice == prev
 }
 
 
