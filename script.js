@@ -116,6 +116,16 @@ function reset(){
 }
 
 function update(){
+
+
+
+    
+    let ai = document.querySelector("#ai-Score")
+    let hu = document.querySelector("#hu-Score")
+
+    ai.textContent = AI_score
+    hu.textContent = humanScore
+    
     if(AI_score>=5 && humanScore>=5){
         alert("tie match")
         reset()
@@ -131,14 +141,6 @@ function update(){
         reset()
         return
     }
-
-
-    
-    let ai = document.querySelector("#ai-Score")
-    let hu = document.querySelector("#hu-Score")
-
-    ai.textContent = AI_score
-    hu.textContent = humanScore
 
 
 }
