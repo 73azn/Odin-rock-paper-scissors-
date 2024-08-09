@@ -106,16 +106,31 @@ function check(){
 }
 
 function reset(){
+
+
+
+    if(AI_score>=5 && humanScore>=5){
+        alert("tie match")
+    }
+    else if(humanScore>=5){
+        alert("you won the match")
+    }
+    else if(AI_score>=5){
+        alert("the AI won the match")
+    }
+
     AI_score =0
     humanScore = 0
     let ai = document.querySelector("#ai-Score")
     let hu = document.querySelector("#hu-Score")
 
+
+
     ai.textContent = AI_score
     hu.textContent = humanScore
 }
 
-function update(){
+async function update(){
 
 
 
@@ -123,24 +138,15 @@ function update(){
     let ai = document.querySelector("#ai-Score")
     let hu = document.querySelector("#hu-Score")
 
-    ai.textContent = AI_score
+    ai.textContent =  AI_score
     hu.textContent = humanScore
 
-    if(AI_score>=5 && humanScore>=5){
-        alert("tie match")
-        reset()
-        return
-    }
-    if(humanScore>=5){
-        alert("you won the match")
-        reset()
-        return
-    }
-    else if(AI_score>=5){
-        alert("the AI won the match")
-        reset()
-        return
-    }
+    await new Promise(resolve => setTimeout(resolve, 1));
+
+    if(AI_score>=5 || humanScore>=5) reset()
+    
+
+   
 
 
 }
