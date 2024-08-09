@@ -27,12 +27,12 @@ function getComputerChoice(){
 
 function changeHumanChoice(){
  
-    let select = document.querySelector(".select")
+    let select = document.querySelector("#player")
     select.textContent = arr[indexer%3]
     indexer++
 }
 function getHumanChoice(){
-    let select = document.querySelector(".select")
+    let select = document.querySelector("#player")
 
     return select.textContent
 }
@@ -52,12 +52,12 @@ function check(){
    
    AI_choice = getComputerChoice()
     
-    if(humanChoice=="🫥"){
+    if(humanChoice=="🫵🏼"){
         
         return humanChoice
     }
     
-    document.querySelector(".player.ai").firstChild.textContent = AI_choice
+    document.querySelector("#ai").firstChild.textContent = AI_choice
     
     
     if(AI_choice == humanChoice){
@@ -125,7 +125,7 @@ function update(){
 
     ai.textContent = AI_score
     hu.textContent = humanScore
-    
+
     if(AI_score>=5 && humanScore>=5){
         alert("tie match")
         reset()
@@ -144,10 +144,20 @@ function update(){
 
 
 }
+function convert() {
+    var input = document.body.innerHTML;
+    var output = emojione.unicodeToImage(input);
+    document.body.innerHTML = output;
+  }
+
+
+
 
 
 function repeted(){
     return humanChoice == prev
 }
+
+convert();
 
 
