@@ -141,7 +141,7 @@ async function update(){
     ai.textContent =  AI_score
     hu.textContent = humanScore
 
-    await new Promise(resolve => setTimeout(resolve, 1));
+    await new Promise(resolve => setTimeout(resolve, 69));
 
     if(AI_score>=5 || humanScore>=5) reset()
     
